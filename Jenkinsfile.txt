@@ -13,6 +13,15 @@ pipeline {
 			}
 		}
 		//maven clean ends
+
+		//code starts for PMD stage(for static analysis)
+
+		stage('PMD'){
+			steps{
+				sh 'mvn site'
+			}
+		}
+		//code ends for PMD
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
