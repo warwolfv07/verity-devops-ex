@@ -53,6 +53,31 @@ pipeline {
 		}
 
 		//code ends for jacoco
+
+
+//Code starts for stage Install(This is skipping maven tests???)
+        stage('Install') {
+            steps {
+                sh 'mvn install -DskipTests'
+            }
+        }
+        //Code ends for stage Install
+ 
+//Code starts for stage Launch Tomcat Server
+        stage('Launch Tomcat Server') {
+            steps {
+                sh '/tmp/apache-tomcat-9.0.78/bin/startup.sh'
+            }
+        }
+        //Code ends for stage Launch Tomcat Server
+
+//Code starts for Deploy War on Tomcat Server(this is putting the .war filr on the apache server)
+        stage('Deploy War on Tomcat Server') {
+            steps {
+                sh 'cp /var/jenkins_home/workspace/verity-devops-ex/target/ExpenseApp-1.war /tmp/apache-tomcat-9.0.78/webapps'
+            }
+        }
+        //Code ends for stage Deploy War on Tomcat Server
 	
 		// ******ALL CODE TO BE ADDED ABOVE THIS COMMENT******
     }
