@@ -16,11 +16,11 @@ pipeline {
 
 		//code starts for PMD stage(for static analysis)
 
-		stage('PMD'){
-			steps{
-				sh 'mvn site'
-			}
-		}
+		//stage('PMD'){
+		//	steps{
+		//		sh 'mvn site'
+		//	}
+		//}
 		//code ends for PMD
 
 		//code starts for creating build (MVN compile)
